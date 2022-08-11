@@ -4,6 +4,7 @@
 bg-color-preloader : #020c1b
 bg-color: #0a192f
 main-color: #64ffda
+hover-color: #64ffda1a
 light-slate: #ccd6f6
 slate: #8892b0
 */
@@ -209,6 +210,7 @@ body {
   stroke: #ccd6f6;
   height: 2.5rem;
   margin-bottom: 4rem;
+  cursor: pointer;
 }
 .header__container--link-icon:hover {
   stroke: #64ffda;
@@ -243,6 +245,7 @@ body {
   text-align: center;
   letter-spacing: 0.1rem;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 .header__container--mail-id:hover {
   margin-bottom: 0.5rem;
@@ -268,7 +271,7 @@ body {
   padding-left: 6rem;
 }
 
-.header__container--content h4 {
+.heading-4 {
   color: #64ffda;
   font-family: "Fira Code", monospace;
   font-size: 2.2rem;
@@ -451,4 +454,112 @@ body {
   0% {
     width: 0%;
   }
+}
+
+/* work section */
+
+.work {
+  margin-top: 12rem;
+  margin-bottom: 12rem;
+  margin-left: 13.2rem;
+  width: 80%;
+}
+
+.row {
+  margin-top: 6rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50rem;
+  position: relative;
+}
+
+.row__img-box {
+  width: 67%;
+  height: 72%;
+  position: relative;
+}
+
+.row__img {
+  background-image: url("img/work-1.PNG");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.row__img-shadow {
+  height: 100%;
+  width: 100%;
+  background-color: #64ffdb6b;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+.row__img-shadow:hover {
+  background-color: transparent;
+}
+
+.row__content {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-right: 1rem;
+}
+
+.row__content-text {
+  padding-top: 0.5rem;
+  text-align: end;
+  display: block;
+  font-size: 1.6rem;
+}
+
+.hover-text {
+  font-size: 3.2rem;
+  font-weight: 500;
+  color: #ccd6f6;
+}
+
+.hover-text:hover {
+  color: #64ffda;
+}
+
+.row__content-box {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+  padding: 2rem 0;
+  padding-right: 0.5rem;
+  line-height: 1.4;
+  letter-spacing: 0.9px;
+  text-align: end;
+  color: #ccd6f6;
+  width: 70%;
+  background-color: #020c1b;
+  border-radius: 3px;
+  z-index: 10000;
+}
+
+.row__content-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 4rem;
+  margin-left: 3px;
+}
+
+.row-icon {
+  height: 3rem;
+  width: 3rem;
+  fill: #ccd6f6;
+  cursor: pointer;
+}
+.row-icon:hover {
+  fill: #64ffda;
 }
