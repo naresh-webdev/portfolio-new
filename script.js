@@ -4,6 +4,23 @@
 const preloadLetter = document.querySelector(".header__preload--logo-letter");
 const section1 = document.querySelector(".header");
 const section2 = document.querySelector(".about");
+const cursor = document.querySelector(".cursor");
+
+// //?cursor animation
+
+// section1.addEventListener("mousemove", (e) => {
+//   cursor.classList.remove("hidden");
+//   cursor.setAttribute(
+//     "style",
+//     "top:" + (e.pageY - 10) + "px; left:" + (e.pageX - 10) + "px;"
+//   );
+// });
+
+// section2.addEventListener("mousemove", () => {
+//   if (!cursor.classList.contains("hidden")) {
+//     cursor.classList.add("hidden");
+//   }
+// });
 
 //?section-1.preload
 
