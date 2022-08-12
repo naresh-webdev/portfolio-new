@@ -588,6 +588,10 @@ body {
   border-radius: 3px;
   z-index: 10000;
 }
+.row__content-box-reverse {
+  text-align: start;
+  padding-left: 0.5rem;
+}
 
 .row__content-links {
   margin-top: 2rem;
