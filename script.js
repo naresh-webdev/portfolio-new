@@ -4,6 +4,8 @@
 const preloadLetter = document.querySelector(".header__preload--logo-letter");
 const section1 = document.querySelector(".header");
 const section2 = document.querySelector(".about");
+const section3 = document.querySelector(".skills");
+const section4 = document.querySelector(".contact");
 const cursor = document.querySelector(".cursor");
 
 // //?cursor animation
@@ -29,6 +31,8 @@ window.addEventListener("load", function () {
     document.querySelector(".header__preload").classList.add("hidden");
     section1.classList.remove("hidden");
     section2.classList.remove("hidden");
+    section3.classList.remove("hidden");
+    section4.classList.remove("hidden");
   }, 2500);
 });
 
