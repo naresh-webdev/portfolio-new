@@ -14,6 +14,7 @@ slate: #8892b0
 *::before {
   margin: 0;
   padding: 0;
+  color-interpolation-filters: rgba(100, 255, 218, 0.102);
   box-sizing: inherit;
 }
 
@@ -39,7 +40,7 @@ body {
 
 /*! Custom scroll bar - prone to warnings */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
