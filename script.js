@@ -1,4 +1,4 @@
-"use strict";
+("use strict");
 
 //?Variable Declarations
 const preloadLetter = document.querySelector(".header__preload--logo-letter");
@@ -90,3 +90,7 @@ var tagCloud = TagCloud(".Sphere", Texts, {
 // Giving color to each text in sphere
 var color = "#64ffda ";
 document.querySelector(".Sphere").style.color = color;
+
+// send mail
+
+console.log(MailSlurp);
