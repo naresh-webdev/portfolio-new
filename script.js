@@ -48,7 +48,7 @@ window.addEventListener("load", function () {
 
 setTimeout(function () {
   preloadLetter.classList.add("header__preload--logo-letter-animate");
-  preloadLetter.style.opacity = "1";
+  preloadLetter.style.opacity = 1;
 }, 1000);
 //
 

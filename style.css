@@ -218,9 +218,9 @@ body {
 
 .header__content {
   display: flex;
-  width: 114rem;
+  width: 80%;
   margin: 0 auto;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .header__container--image {
   justify-self: center;
