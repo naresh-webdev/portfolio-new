@@ -133,7 +133,26 @@ submitBtn.addEventListener("click", function (e) {
   const serviceID = "service_5ls2xer";
   const templateID = "template_xsgo1px";
   const publicKey = "REuIZUBFPI5XC8qFR";
-
-  emailjs.init(publicKey);
-  emailjs.send(serviceID, templateID, templateParams, publicKey);
 });
+
+function sendMail() {
+  emailjs.init(publicKey);
+  emailjs.send(serviceID, templateID, templateParams, publicKey).then((res) => {
+    if (res.status === 200) {
+      console.log("message sent");
+    }
+  });
+}
+
+const requestOptions = {
+  method: "GET",
+  redirect: "follow",
+};
+
+// const testMail = document.getElementById("email").value;
+const testMail = "test@gmail.com";
+
+fetch(`https://api.eva.pingutil.com/email?email=${testMail}`, requestOptions)
+  .then((response) => response.json())
+  .then((result) => console.log(result))
+  .catch((error) => console.log("error", error));
