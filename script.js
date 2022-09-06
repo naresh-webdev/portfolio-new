@@ -118,17 +118,22 @@ document.querySelector(".Sphere").style.color = color;
 //     alert("Oops... " + JSON.stringify(error));
 //   });
 
-const templateParams = {
-  name: "Jonas",
-  email: "jonas@gmail.com",
-  subject: "subject",
-  message: "message",
-};
+const submitBtn = document.querySelector(".submit-btn");
 
-const serviceID = "service_5ls2xer";
-const templateID = "template_xsgo1px";
-const publicKey = "REuIZUBFPI5XC8qFR";
+submitBtn.addEventListener("click", function (e) {
+  e.preventDefault;
 
-emailjs.init(publicKey);
-console.log(emailjs);
-emailjs.send(serviceID, templateID, templateParams, publicKey);
+  const templateParams = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    subject: document.getElementById("subject").value,
+    message: document.getElementById("textarea").value,
+  };
+
+  const serviceID = "service_5ls2xer";
+  const templateID = "template_xsgo1px";
+  const publicKey = "REuIZUBFPI5XC8qFR";
+
+  emailjs.init(publicKey);
+  emailjs.send(serviceID, templateID, templateParams, publicKey);
+});
