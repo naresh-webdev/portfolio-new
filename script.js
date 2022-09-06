@@ -93,27 +93,42 @@ document.querySelector(".Sphere").style.color = color;
 
 // send mail
 
-var data = {
-  service_id: "service_5ls2xer",
-  template_id: "template_xsgo1px",
-  user_id: "REuIZUBFPI5XC8qFR",
-  template_params: {
-    name: "James",
-    subject: "subject",
-    email: "test@gmail.com",
-    message: "message",
-    "g-recaptcha-response": "03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...",
-  },
+// var data = {
+//   service_id: "service_5ls2xer",
+//   template_id: "template_xsgo1px",
+//   user_id: "REuIZUBFPI5XC8qFR",
+//   template_params: {
+//     name: "James",
+//     subject: "subject",
+//     email: "test@gmail.com",
+//     message: "message",
+//     "g-recaptcha-response": "03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...",
+//   },
+// };
+
+// $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+//   type: "POST",
+//   data: JSON.stringify(data),
+//   contentType: "application/json",
+// })
+//   .done(function () {
+//     alert("Your mail is sent!");
+//   })
+//   .fail(function (error) {
+//     alert("Oops... " + JSON.stringify(error));
+//   });
+
+const templateParams = {
+  name: "Jonas",
+  email: "jonas@gmail.com",
+  subject: "subject",
+  message: "message",
 };
 
-$.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-  type: "POST",
-  data: JSON.stringify(data),
-  contentType: "application/json",
-})
-  .done(function () {
-    alert("Your mail is sent!");
-  })
-  .fail(function (error) {
-    alert("Oops... " + JSON.stringify(error));
-  });
+const serviceID = "service_5ls2xer";
+const templateID = "template_xsgo1px";
+const publicKey = "REuIZUBFPI5XC8qFR";
+
+emailjs.init(publicKey);
+console.log(emailjs);
+emailjs.send(serviceID, templateID, templateParams, publicKey);
