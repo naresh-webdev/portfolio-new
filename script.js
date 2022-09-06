@@ -91,7 +91,7 @@ var tagCloud = TagCloud(".Sphere", Texts, {
 var color = "#64ffda ";
 document.querySelector(".Sphere").style.color = color;
 
-// send mail
+//? send mail
 
 // var data = {
 //   service_id: "service_5ls2xer",
@@ -133,6 +133,13 @@ submitBtn.addEventListener("click", function (e) {
   const serviceID = "service_5ls2xer";
   const templateID = "template_xsgo1px";
   const publicKey = "REuIZUBFPI5XC8qFR";
+
+  if (
+    isDeliverable(testMail).then((res) => console.log(res)) &&
+    isEmpty(name, email, subject, message)
+  ) {
+    console.log("test");
+  }
 });
 
 function sendMail() {
@@ -144,15 +151,38 @@ function sendMail() {
   });
 }
 
-const requestOptions = {
-  method: "GET",
-  redirect: "follow",
+// *testing functions
+// const testMail = document.getElementById("email").value;
+const testMail = "testh@gmail.com";
+
+const isDeliverable = function (testMail) {
+  const requestOptions = {
+    method: "GET",
+    redirect: "follow",
+  };
+
+  return fetch(
+    `https://api.eva.pingutil.com/email?email=${testMail}`,
+    requestOptions
+  )
+    .then((response) => response.json())
+    .then((res) => {
+      if (res.status === "success") {
+        if (res.data.deliverable) {
+          sendMail();
+        } else {
+          throw new Error("invalid email address");
+        }
+      } else {
+        throw new Error("Email verification falied try again!");
+      }
+    })
+    .catch((error) => console.log("error", error));
 };
 
-// const testMail = document.getElementById("email").value;
-const testMail = "test@gmail.com";
+const isEmpty = function ([...args]) {
+  console.log(args);
+  return false;
+};
 
-fetch(`https://api.eva.pingutil.com/email?email=${testMail}`, requestOptions)
-  .then((response) => response.json())
-  .then((result) => console.log(result))
-  .catch((error) => console.log("error", error));
+isDeliverable(testMail);
