@@ -103,7 +103,7 @@ body {
   height: 12rem;
   stroke-dasharray: 700;
   stroke-dashoffset: 0;
-  animation: preload 1s cubic-bezier(0.83, -0.08, 0.4, 0.78) 1;
+  animation: preload 1.5s cubic-bezier(0.56, 0, 0.13, 1.04) 1;
   transform: rotate(240deg);
 }
 
@@ -814,7 +814,6 @@ body {
 .submit-btn:hover {
   background-color: var(--color-primary);
   color: var(--color-bg);
-  transform: translateY(-0.3rem);
 }
 
 .submit-btn:active {

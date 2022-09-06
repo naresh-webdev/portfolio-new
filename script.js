@@ -93,4 +93,27 @@ document.querySelector(".Sphere").style.color = color;
 
 // send mail
 
-console.log(MailSlurp);
+var data = {
+  service_id: "service_5ls2xer",
+  template_id: "template_xsgo1px",
+  user_id: "REuIZUBFPI5XC8qFR",
+  template_params: {
+    name: "James",
+    subject: "subject",
+    email: "test@gmail.com",
+    message: "message",
+    "g-recaptcha-response": "03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...",
+  },
+};
+
+$.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+  type: "POST",
+  data: JSON.stringify(data),
+  contentType: "application/json",
+})
+  .done(function () {
+    alert("Your mail is sent!");
+  })
+  .fail(function (error) {
+    alert("Oops... " + JSON.stringify(error));
+  });
