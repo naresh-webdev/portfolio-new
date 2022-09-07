@@ -197,11 +197,15 @@ class mail {
           if (res.data.deliverable) {
             this._sendMail();
           } else {
-            //!raise error
+            //!raise error-solved
+            errorText.textContent = "Invalid email address !!!";
+            error.style.opacity = 1;
             throw new Error("email address not delievarable");
           }
         } else {
-          //!raise error
+          //!raise error-solved
+          errorText.textContent = "Enter a valid email address !!!";
+          error.style.opacity = 1;
           throw new Error("enter a valid email address");
         }
       })
