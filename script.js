@@ -77,7 +77,7 @@ const Texts = [
 
 var tagCloud = TagCloud(".Sphere", Texts, {
   // Sphere radius in px
-  radius: 230,
+  radius: 200,
 
   // animation speed
   // slow, normal, fast
