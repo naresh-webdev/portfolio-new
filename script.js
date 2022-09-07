@@ -118,42 +118,74 @@ document.querySelector(".Sphere").style.color = color;
 //     alert("Oops... " + JSON.stringify(error));
 //   });
 
-const submitBtn = document.querySelector(".submit-btn");
+class mail {
+  constructor(serviceID, templateID, publicKey) {
+    this.serviceId = serviceID;
+    this.templateId = templateID;
+    this.publicKey = publicKey;
+    this.templateParams = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("email").value,
+      subject: document.getElementById("subject").value,
+      message: document.getElementById("textarea").value,
+    };
 
-submitBtn.addEventListener("click", function (e) {
-  e.preventDefault;
-
-  const templateParams = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    subject: document.getElementById("subject").value,
-    message: document.getElementById("textarea").value,
-  };
-
-  const serviceID = "service_5ls2xer";
-  const templateID = "template_xsgo1px";
-  const publicKey = "REuIZUBFPI5XC8qFR";
-
-  if (
-    isDeliverable(testMail).then((res) => console.log(res)) &&
-    isEmpty(name, email, subject, message)
-  ) {
-    console.log("test");
+    document
+      .querySelector(".submit-btn")
+      .addEventListener("click", this.btnOnClick.bind(this));
   }
-});
 
-function sendMail() {
-  emailjs.init(publicKey);
-  emailjs.send(serviceID, templateID, templateParams, publicKey).then((res) => {
-    if (res.status === 200) {
-      console.log("message sent");
+  btnOnClick(e) {
+    e.preventDefault;
+    this.templateParams.name = document.getElementById("name").value;
+    this.templateParams.email = document.getElementById("email").value;
+    this.templateParams.subject = document.getElementById("subject").value;
+    this.templateParams.message = document.getElementById("textarea").value;
+
+    if (
+      this.isEmpty([
+        this.templateParams.name,
+        this.templateParams.email,
+        this.templateParams.subject,
+        this.templateParams.message,
+      ])
+    ) {
+      console.log("line 138");
     }
-  });
+  }
+
+  isEmpty([...args]) {
+    console.log(args);
+    if (args.every((field) => field !== "")) {
+      return true;
+    } else {
+      //!raise error
+    }
+  }
+}
+/*
+submitBtn;
+// !mail sending funcion
+function sendMail() {
+  emailjs.init("REuIZUBFPI5XC8qFR");
+  emailjs
+    .send(
+      "service_5ls2xer",
+      "template_xsgo1px",
+      templateParams,
+      "REuIZUBFPI5XC8qFR"
+    )
+    .then((res) => {
+      if (res.status === 200) {
+        console.log("message sent");
+      }
+    });
 }
 
 // *testing functions
+
 // const testMail = document.getElementById("email").value;
-const testMail = "testh@gmail.com";
+// const testMail = "test@gmail.com";
 
 const isDeliverable = function (testMail) {
   const requestOptions = {
@@ -171,18 +203,42 @@ const isDeliverable = function (testMail) {
         if (res.data.deliverable) {
           sendMail();
         } else {
-          throw new Error("invalid email address");
+          //!raise error
+          throw new Error("email address not delievarable");
         }
       } else {
-        throw new Error("Email verification falied try again!");
+        //!raise error
+        throw new Error("enter a valid email address");
       }
     })
     .catch((error) => console.log("error", error));
 };
 
 const isEmpty = function ([...args]) {
-  console.log(args);
-  return false;
+  // console.log(args);
+  if (args.every((field) => field !== "")) {
+    checkName(document.getElementById("name").value);
+  } else {
+    //!raise error
+  }
 };
 
-isDeliverable(testMail);
+const checkName = (name) => {
+  if (name.length > 3) {
+    isDeliverable(document.getElementById("email").value);
+  } else {
+    //!raise error
+
+    alert("name should be more than 3 ch");
+  }
+};
+
+// isDeliverable(testMail);
+
+*/
+
+const MailOjbect = new mail(
+  "service_5ls2xer",
+  "template_xsgo1px",
+  "REuIZUBFPI5XC8qFR"
+);
