@@ -9,6 +9,8 @@ const section4 = document.querySelector(".work");
 const section5 = document.querySelector(".contact");
 const cursor = document.querySelector(".cursor");
 const error = document.querySelector(".error");
+const closeIcon = document.querySelector(".close-icon");
+const errorText = document.querySelector(".errorText");
 
 // //?cursor animation
 
@@ -157,12 +159,16 @@ class mail {
       if (this.templateParams.name.length >= 3) {
         this._isDeliverable(this.templateParams.email);
       } else {
-        //! error for condition 2
-        alert("name should be atleast 3 character or more");
+        //! error for condition 2-solved
+        // alert("name should be atleast 3 character or more");
+        errorText.textContent = "Name cannot be less than 3 characters !!!";
+        error.style.opacity = 1;
       }
     } else {
-      //! error for condition 1
-      alert("empty fields not allowed !!!");
+      //! error for condition 1-solved
+      // alert("empty fields not allowed !!!");
+      errorText.textContent = "Empty fields not allowed !!!";
+      error.style.opacity = 1;
     }
   }
 
@@ -301,3 +307,7 @@ const checkName = (name) => {
 // isDeliverable(testMail);
 
 */
+
+closeIcon.addEventListener("click", function () {
+  error.style.opacity = 0;
+});
