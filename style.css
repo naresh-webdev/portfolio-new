@@ -819,3 +819,24 @@ body {
 .submit-btn:active {
   transform: translateY(0.5rem);
 }
+
+.error {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 1.8rem;
+  z-index: 10001;
+  color: var(--color-text-light);
+  padding: 1.5rem;
+  background-color: #f03e3e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.warning-icon {
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}

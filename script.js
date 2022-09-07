@@ -8,6 +8,7 @@ const section3 = document.querySelector(".skills");
 const section4 = document.querySelector(".work");
 const section5 = document.querySelector(".contact");
 const cursor = document.querySelector(".cursor");
+const error = document.querySelector(".error");
 
 // //?cursor animation
 
@@ -43,6 +44,7 @@ window.addEventListener("load", function () {
     section3.classList.remove("hidden");
     section4.classList.remove("hidden");
     section5.classList.remove("hidden");
+    error.classList.remove("hidden");
   }, 2500);
 });
 
@@ -219,6 +221,13 @@ class mail {
       .catch((err) => console.console.error(err));
   }
 }
+
+const MailOjbect = new mail(
+  "service_5ls2xer",
+  "template_xsgo1px",
+  "REuIZUBFPI5XC8qFR"
+);
+
 /*
 submitBtn;
 // !mail sending funcion
@@ -292,9 +301,3 @@ const checkName = (name) => {
 // isDeliverable(testMail);
 
 */
-
-const MailOjbect = new mail(
-  "service_5ls2xer",
-  "template_xsgo1px",
-  "REuIZUBFPI5XC8qFR"
-);
