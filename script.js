@@ -173,7 +173,7 @@ class mail {
   }
 
   _isEmpty([...args]) {
-    console.log(args);
+    // console.log(args);
     if (args.every((field) => field !== "")) {
       return true;
     } else {
@@ -209,7 +209,11 @@ class mail {
           throw new Error("enter a valid email address");
         }
       })
-      .catch((error) => console.log("error", error));
+      .catch((err) => {
+        //!raise error-solved
+        errorText.textContent = `Network Error: ${err.message} data !!!`;
+        error.style.opacity = 1;
+      });
   }
 
   _sendMail() {
