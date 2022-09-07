@@ -142,25 +142,81 @@ class mail {
     this.templateParams.subject = document.getElementById("subject").value;
     this.templateParams.message = document.getElementById("textarea").value;
 
+    // * 1.check if all the field are not empty
     if (
-      this.isEmpty([
+      this._isEmpty([
         this.templateParams.name,
         this.templateParams.email,
         this.templateParams.subject,
         this.templateParams.message,
       ])
     ) {
-      console.log("line 138");
+      // *2.check if the name has atleast 3 characters
+      if (this.templateParams.name.length >= 3) {
+        this._isDeliverable(this.templateParams.email);
+      } else {
+        //! error for condition 2
+        alert("name should be atleast 3 character or more");
+      }
+    } else {
+      //! error for condition 1
+      alert("empty fields not allowed !!!");
     }
   }
 
-  isEmpty([...args]) {
+  _isEmpty([...args]) {
     console.log(args);
     if (args.every((field) => field !== "")) {
       return true;
     } else {
-      //!raise error
+      return false;
     }
+  }
+
+  _isDeliverable(email) {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
+
+    return fetch(
+      `https://api.eva.pingutil.com/email?email=${email}`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status === "success") {
+          if (res.data.deliverable) {
+            this._sendMail();
+          } else {
+            //!raise error
+            throw new Error("email address not delievarable");
+          }
+        } else {
+          //!raise error
+          throw new Error("enter a valid email address");
+        }
+      })
+      .catch((error) => console.log("error", error));
+  }
+
+  _sendMail() {
+    emailjs.init(this.publicKey);
+    emailjs
+      .send(
+        this.serviceId,
+        this.templateId,
+        this.templateParams,
+        this.publicKey
+      )
+      .then((res) => {
+        if (res.status === 200) {
+          alert("success message sent");
+        } else {
+          alert("message couldn't send please try again");
+        }
+      })
+      .catch((err) => console.console.error(err));
   }
 }
 /*
