@@ -42,7 +42,7 @@ window.addEventListener("load", function () {
   setTimeout(function () {
     document.querySelector(".header__preload").classList.add("hidden");
     section1.classList.remove("hidden");
-    // section2.classList.remove("hidden");
+    section2.classList.remove("hidden");
     // section3.classList.remove("hidden");
     // section4.classList.remove("hidden");
     // section5.classList.remove("hidden");
