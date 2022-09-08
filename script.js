@@ -46,6 +46,7 @@ window.addEventListener("load", function () {
     document.querySelectorAll(".down").forEach((arr) => {
       arr.classList.remove("hidden");
     });
+    document.querySelector(".list-icon").classList.remove("hidden");
     section3.classList.remove("hidden");
     // section4.classList.remove("hidden");
     // section5.classList.remove("hidden");

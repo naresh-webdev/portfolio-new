@@ -501,7 +501,7 @@ body {
 
 /* section skills */
 .skills {
-  margin-top: 16rem;
+  margin-top: 28rem;
   margin-bottom: 16rem;
   margin-left: 13.2rem;
   width: 80%;
@@ -991,11 +991,11 @@ body {
   .skills {
     display: flex;
     flex-direction: column;
-    margin-left: 9.3rem;
+    margin-left: 6.3rem;
   }
   .about__container-content {
     align-self: flex-start;
-    margin-left: 5rem;
+    margin-left: 3rem;
   }
   .about {
     justify-content: flex-start;
@@ -1060,7 +1060,7 @@ body {
   }
   .header__content {
     width: 100%;
-    margin-left: 8.5rem;
+    margin-left: 5.5rem;
     /* margin-bottom: 9rem; */
     margin-bottom: 7rem;
   }
@@ -1074,7 +1074,7 @@ body {
     display: none;
   }
   .header__nav--logo-box {
-    margin-left: 6rem;
+    margin-left: 5rem;
   }
   .tagcloud {
     height: 25rem !important;
@@ -1098,9 +1098,9 @@ body {
     padding-left: 0;
   }
   .header__content {
-    margin-left: 8rem;
+    margin-left: 6rem;
     margin-bottom: 8rem;
-    margin-top: 10rem;
+    margin-top: 6rem;
   }
   .about__container--content {
     margin-left: 6.3rem;
@@ -1113,7 +1113,7 @@ body {
     right: 4.3rem;
   }
   .header__nav--logo-box {
-    margin-left: 5rem;
+    margin-left: 4rem;
   }
   .Sphere {
     display: none;
