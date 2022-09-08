@@ -46,21 +46,17 @@ window.addEventListener("load", function () {
     document.querySelectorAll(".down").forEach((arr) => {
       arr.classList.remove("hidden");
     });
-    // section3.classList.remove("hidden");
+    section3.classList.remove("hidden");
     // section4.classList.remove("hidden");
     // section5.classList.remove("hidden");
     // error.classList.remove("hidden");
 
     const observer = new IntersectionObserver(
       (e) => {
-        console.log(e[0].isIntersecting);
+        // console.log(e[0].isIntersecting);
         if (e[0].isIntersecting) {
           document.querySelectorAll(".down").forEach((arr) => {
             arr.classList.add("hidden");
-          });
-        } else {
-          document.querySelectorAll(".down").forEach((arr) => {
-            arr.classList.remove("hidden");
           });
         }
       },
@@ -69,6 +65,21 @@ window.addEventListener("load", function () {
         threshold: 0,
       }
     );
+    const observer1 = new IntersectionObserver(
+      (e) => {
+        console.log(e[0].isIntersecting);
+        if (e[0].isIntersecting) {
+          document.querySelectorAll(".down").forEach((arr) => {
+            arr.classList.remove("hidden");
+          });
+        }
+      },
+      {
+        root: null,
+        threshold: 0.8,
+      }
+    );
+    observer1.observe(section1);
     observer.observe(section2);
   }, 2500);
 });
