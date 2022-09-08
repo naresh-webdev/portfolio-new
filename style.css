@@ -1017,6 +1017,9 @@ body {
   .header__img-box {
     /* height: 46%; */
   }
+  .about {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 500px) {
