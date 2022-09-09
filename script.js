@@ -48,7 +48,7 @@ window.addEventListener("load", function () {
     });
     document.querySelector(".list-icon").classList.remove("hidden");
     section3.classList.remove("hidden");
-    // section4.classList.remove("hidden");
+    section4.classList.remove("hidden");
     // section5.classList.remove("hidden");
     // error.classList.remove("hidden");
 
