@@ -919,6 +919,9 @@ body {
 /*! media quires */
 
 @media (max-width: 1266px) {
+  .contact {
+    margin: 10rem auto;
+  }
   html {
     font-size: 53.125%;
     /* 8.5px */
@@ -953,6 +956,11 @@ body {
 }
 
 @media (max-width: 1050px) {
+  /* contact section */
+  .contact {
+    margin: 12rem auto;
+    width: 85%;
+  }
   /* work section */
 
   .row {
@@ -963,6 +971,12 @@ body {
     background-size: contain;
     transform: scale(1.1);
     background-position: center;
+  }
+  .row__img-1:hover {
+    background-image: url(img/work-1-dark.png);
+  }
+  .row__img-2:hover {
+    background-image: url(img/work-2-dark.png);
   }
 
   .row__img-1 {
@@ -1055,11 +1069,15 @@ body {
 }
 
 @media (max-width: 750px) {
+  .contact {
+    margin: 34rem auto;
+    width: 100%;
+  }
   html {
     font-size: 40%;
   }
-  .work {
-    margin-left: 7.3rem;
+  #work-heading {
+    margin-left: -5.3rem;
   }
   .about__text-paragraph {
     max-width: 55ch;
@@ -1109,6 +1127,16 @@ body {
 }
 
 @media (max-width: 700px) {
+  #work-heading {
+    margin-left: 0.2rem;
+  }
+  .work {
+    margin-left: 7.5rem;
+  }
+  .contact {
+    margin: 22rem auto;
+    width: 100%;
+  }
   .row__content {
     top: 49%;
     left: 50%;
@@ -1190,6 +1218,12 @@ body {
     width: 25rem !important;
     font-size: 1.6rem;
     margin-left: 10rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .work {
+    margin-left: 7rem;
   }
 }
 
