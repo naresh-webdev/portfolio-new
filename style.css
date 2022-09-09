@@ -103,7 +103,7 @@ body {
   height: 12rem;
   stroke-dasharray: 700;
   stroke-dashoffset: 0;
-  animation: preload 1.5s cubic-bezier(0.56, 0, 0.13, 1.04) 1;
+  animation: preload 2.5s cubic-bezier(1, 0, 0, 1) 1;
   transform: rotate(240deg);
 }
 

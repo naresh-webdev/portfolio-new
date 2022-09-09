@@ -82,7 +82,7 @@ window.addEventListener("load", function () {
     );
     observer1.observe(section1);
     observer.observe(section2);
-  }, 2500);
+  }, 3500);
 });
 
 setTimeout(function () {
