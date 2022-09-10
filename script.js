@@ -262,9 +262,13 @@ class mail {
       )
       .then((res) => {
         if (res.status === 200) {
+          // *success message
           alert("success message sent");
         } else {
-          alert("message couldn't send please try again");
+          //!raise error - solved
+          // alert("message couldn't send please try again");
+          errorText.textContent = `message couldn't send please try again!!!`;
+          error.style.opacity = 1;
         }
       })
       .catch((err) => console.console.error(err));

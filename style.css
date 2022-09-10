@@ -443,6 +443,7 @@ body {
 .about {
   /* margin-top: 10rem;
   margin-bottom: 12rem; */
+  margin-top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -958,7 +959,7 @@ body {
 @media (max-width: 1050px) {
   /* contact section */
   .contact {
-    margin: 12rem auto;
+    margin: 14rem auto;
     width: 85%;
   }
   /* work section */
@@ -971,6 +972,7 @@ body {
     background-size: contain;
     transform: scale(1.1);
     background-position: center;
+    opacity: 0.4;
   }
   .row__img-1:hover {
     background-image: url(img/work-1-dark.png);
@@ -1037,6 +1039,9 @@ body {
 }
 
 @media (max-width: 900px) {
+  .work {
+    margin: 10rem auto;
+  }
   .row__content {
     top: 50%;
     left: 50%;
@@ -1223,13 +1228,13 @@ body {
 
 @media (max-width: 430px) {
   .work {
-    margin-left: 7rem;
+    margin-left: 6rem;
   }
 }
 
 @media (max-width: 340px) {
   .work {
-    margin-left: 6rem;
+    margin-left: 5rem;
   }
   .header__container--content h1 {
     font-size: 4rem;
