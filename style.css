@@ -203,9 +203,11 @@ body {
 .header__nav--item {
   cursor: pointer;
   color: var(--color-text);
-  transition: 0.2s ease-in-out;
   font-size: 1.7rem;
   letter-spacing: 0.08rem;
+  transform: translateY(-10rem);
+  opacity: 0;
+  transition: all ease-out;
 }
 .header__nav--item span {
   margin-right: 0.2rem;
@@ -227,6 +229,10 @@ body {
   justify-self: center;
   align-self: center;
   width: 50rem;
+
+  transform: translateX(60rem);
+  opacity: 0;
+  transition: all 0.7s ease-out;
 }
 
 .header__img-box {
@@ -291,6 +297,12 @@ body {
   /* padding-top: 14rem;
   padding-left: 3rem; */
 }
+
+.header__text {
+  opacity: 0;
+  transform: translateX(-60rem);
+  transition: all ease-out;
+}
 .btn {
   color: var(--color-primary);
   padding: 1rem;
@@ -306,6 +318,9 @@ body {
 .btn--resume {
   margin-right: 5rem;
   font-size: 1.4rem;
+  opacity: 0;
+  transform: translateY(-10rem);
+  transition: all ease-out;
 }
 
 .btn--contact {

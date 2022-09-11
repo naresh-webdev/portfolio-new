@@ -73,6 +73,31 @@ window.addEventListener("load", function () {
           document.querySelectorAll(".down").forEach((arr) => {
             arr.classList.remove("hidden");
           });
+
+          //! HEADER APPLICATION DESIGN
+          // ? Navigation animation
+          const navItems = document.querySelectorAll(".header__nav--item");
+          // console.log(navItems);
+          navItems.forEach((navItem) => {
+            navItem.style.transform = "translateY(0rem)";
+            navItem.style.opacity = "1";
+          });
+          document.querySelector(".btn--resume").style.transform =
+            "translateY(0rem)";
+          document.querySelector(".btn--resume").style.opacity = "1";
+
+          // ? Header-content animation
+          document.querySelectorAll(".header__text").forEach((headerEl) => {
+            console.log(headerEl);
+            headerEl.style.transform = "translateX(0rem)";
+            headerEl.style.opacity = "1";
+          });
+
+          // ? Header-image animation
+          document.querySelector(".header__container--image").style.transform =
+            "translateX(0rem)";
+          document.querySelector(".header__container--image").style.opacity =
+            "1";
         }
       },
       {
