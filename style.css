@@ -1073,6 +1073,7 @@ body {
     /* margin-right: 9.8rem; */
     margin: 0 auto;
     margin-top: 10rem;
+    transform: translate(0, 0) !important;
   }
   html {
     font-size: 50%;
