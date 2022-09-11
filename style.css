@@ -524,6 +524,7 @@ body {
   letter-spacing: 1px;
   font-size: 2rem;
   color: var(--color-primary);
+  transform: translateX(-6rem);
 }
 
 .tagcloud--item {
@@ -983,6 +984,7 @@ body {
     width: 30rem !important;
     margin-right: 8rem;
     margin-top: 5rem;
+    transform: translateX(-2rem);
   }
 
   /* .about__container {
