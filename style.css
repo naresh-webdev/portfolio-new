@@ -192,6 +192,10 @@ body {
   width: 6rem;
   margin-left: 3rem;
   position: relative;
+
+  opacity: 0;
+  transform: translateY(-10rem);
+  transition: all 0.5s ease-out;
 }
 
 .header__nav--logo-svg {
@@ -498,6 +502,9 @@ body {
   font-size: 2.5rem;
   color: var(--color-text-light);
   font-weight: 700;
+  opacity: 0;
+  transform: translateY(10rem);
+  transition: all 0.5s ease;
 }
 .about__text {
   padding-left: 1rem;
@@ -511,6 +518,9 @@ body {
 .about__text-paragraph {
   margin-top: 3rem;
   max-width: 40ch;
+  opacity: 0;
+  transform: translateY(10rem);
+  transition: all ease;
 }
 .about__text-paragraph:last-child {
   color: var(--color-primary);
@@ -524,7 +534,9 @@ body {
   letter-spacing: 1px;
   font-size: 2rem;
   color: var(--color-primary);
-  transform: translateX(-6rem);
+  opacity: 0;
+  transform: translate(-6rem, 13rem);
+  transition: all 1s ease;
 }
 
 .tagcloud--item {
@@ -1338,4 +1350,11 @@ body {
   .about {
     margin-top: 14rem;
   }
+}
+
+/* utility classes */
+
+.scroll-animation {
+  opacity: 1 !important;
+  transform: translateY(0rem) !important;
 }

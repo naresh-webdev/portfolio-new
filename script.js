@@ -61,23 +61,9 @@ window.addEventListener("load", function () {
       section5.classList.remove("hidden");
       error.classList.remove("hidden");
 
-      const observer = new IntersectionObserver(
-        (e) => {
-          // console.log(e[0].isIntersecting);
-          if (e[0].isIntersecting) {
-            document.querySelectorAll(".down").forEach((arr) => {
-              arr.classList.add("hidden");
-            });
-          }
-        },
-        {
-          root: null,
-          threshold: 0,
-        }
-      );
       const observer1 = new IntersectionObserver(
         (e) => {
-          console.log(e[0].isIntersecting);
+          // console.log(e[0].isIntersecting);
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.remove("hidden");
@@ -94,10 +80,14 @@ window.addEventListener("load", function () {
             document.querySelector(".btn--resume").style.transform =
               "translateY(0rem)";
             document.querySelector(".btn--resume").style.opacity = "1";
+            document.querySelector(".header__nav--logo-box").style.transform =
+              "translateY(0rem)";
+            document.querySelector(".header__nav--logo-box").style.opacity =
+              "1";
 
             // ? Header-content animation
             document.querySelectorAll(".header__text").forEach((headerEl) => {
-              console.log(headerEl);
+              // console.log(headerEl);
               headerEl.style.transform = "translateX(0rem)";
               headerEl.style.opacity = "1";
             });
@@ -115,8 +105,58 @@ window.addEventListener("load", function () {
           threshold: 0.8,
         }
       );
+
+      const observer2Arrow = new IntersectionObserver(
+        (e) => {
+          // console.log(e[0].isIntersecting);
+          if (e[0].isIntersecting) {
+            document.querySelectorAll(".down").forEach((arr) => {
+              arr.classList.add("hidden");
+            });
+
+            //! ABOUT SECTION ANIMATION
+            document
+              .getElementById("about-me-text")
+              .classList.add("scroll-animation");
+          }
+        },
+        {
+          root: null,
+          threshold: 0,
+        }
+      );
+
+      const observer2 = new IntersectionObserver(
+        (e) => {
+          console.log(e[0].isIntersecting, "section 2");
+          if (e[0].isIntersecting) {
+            document.querySelectorAll(".down").forEach((arr) => {
+              arr.classList.add("hidden");
+            });
+
+            //! ABOUT SECTION ANIMATION
+            document
+              .getElementById("about-me-text")
+              .classList.add("scroll-animation");
+            document
+              .querySelectorAll(".about__text-paragraph")
+              .forEach((paragraph) => {
+                paragraph.classList.add("scroll-animation");
+              });
+            document.querySelector(".tagcloud").style.transform =
+              "translate(-6rem,0rem)";
+            document.querySelector(".tagcloud").style.opacity = "1";
+          }
+        },
+        {
+          root: null,
+          threshold: 0.6,
+        }
+      );
+
       observer1.observe(section1);
-      observer.observe(section2);
+      observer2Arrow.observe(section2);
+      observer2.observe(section2);
     }, 650);
   }, 3500);
 });
