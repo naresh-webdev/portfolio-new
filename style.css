@@ -569,6 +569,10 @@ body {
   font-size: 2.5rem;
   color: var(--color-text);
   font-weight: 700;
+
+  transform: translateY(10rem);
+  opacity: 0;
+  transition: all 0.5s ease;
 }
 
 .skill-content {
