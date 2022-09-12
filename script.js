@@ -150,7 +150,7 @@ window.addEventListener("load", function () {
         },
         {
           root: null,
-          threshold: 0.6,
+          threshold: 0.45,
         }
       );
 
@@ -170,6 +170,10 @@ window.addEventListener("load", function () {
             document.querySelectorAll(".skill-content").forEach((con) => {
               con.classList.add("scroll-animation");
             });
+
+            document
+              .querySelector(".skill-bar")
+              .classList.add("scroll-animation");
           }
         },
         {
@@ -178,10 +182,47 @@ window.addEventListener("load", function () {
         }
       );
 
+      const observer4 = new IntersectionObserver(
+        (e) => {
+          console.log(e[0].isIntersecting, "section 4");
+          if (e[0].isIntersecting) {
+            document.querySelectorAll(".down").forEach((arr) => {
+              arr.classList.add("hidden");
+            });
+
+            //! WORK SECTION ANIMATION
+            document
+              .getElementById("work-heading")
+              .classList.add("scroll-animation");
+
+            document.querySelectorAll(".skill-content").forEach((con) => {
+              con.classList.add("scroll-animation");
+            });
+
+            document
+              .querySelector(".skill-bar")
+              .classList.add("scroll-animation");
+
+            document.querySelectorAll(".row").forEach((con) => {
+              con.classList.add("scroll-animation");
+            });
+
+            document.querySelectorAll(".row-reverse").forEach((con) => {
+              con.classList.add("scroll-animation");
+            });
+          }
+        },
+        {
+          root: null,
+          threshold: 0.15,
+        }
+      );
+
       observer1.observe(section1);
       observer2Arrow.observe(section2);
       observer2.observe(section2);
       observer3.observe(section3);
+      observer4.observe(section4);
     }, 650);
   }, 3500);
 });
