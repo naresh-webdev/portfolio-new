@@ -156,29 +156,25 @@ window.addEventListener("load", function () {
 
       const observer3 = new IntersectionObserver(
         (e) => {
-          // console.log(e[0].isIntersecting, "section 3");
-          // if (e[0].isIntersecting) {
-          //   document.querySelectorAll(".down").forEach((arr) => {
-          //     arr.classList.add("hidden");
-          //   });
+          console.log(e[0].isIntersecting, "section 3");
+          if (e[0].isIntersecting) {
+            document.querySelectorAll(".down").forEach((arr) => {
+              arr.classList.add("hidden");
+            });
 
             //! SKILL SECTION ANIMATION
             document
-              .getElementById("about-me-text")
+              .querySelector(".secondary-heading")
               .classList.add("scroll-animation");
-            document
-              .querySelectorAll(".about__text-paragraph")
-              .forEach((paragraph) => {
-                paragraph.classList.add("scroll-animation");
-              });
-            document.querySelector(".tagcloud").style.transform =
-              "translate(-6rem,0rem)";
-            document.querySelector(".tagcloud").style.opacity = "1";
+
+            document.querySelectorAll(".skill-content").forEach((con) => {
+              con.classList.add("scroll-animation");
+            });
           }
         },
         {
           root: null,
-          threshold: 0.6,
+          threshold: 0.35,
         }
       );
 

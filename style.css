@@ -572,12 +572,16 @@ body {
 
   transform: translateY(10rem);
   opacity: 0;
-  transition: all 0.5s ease;
+  transition: all 0.6s ease-out;
 }
 
 .skill-content {
   margin-top: 3rem;
   max-width: 40ch;
+
+  transform: translateY(10rem);
+  opacity: 0;
+  transition: all ease-out;
 }
 .skill-content a {
   color: var(--color-primary);
