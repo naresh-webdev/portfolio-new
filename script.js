@@ -52,9 +52,9 @@ window.addEventListener("load", function () {
       document.querySelector(".header__preload").classList.add("hidden");
       section1.classList.remove("hidden");
       section2.classList.remove("hidden");
-      document.querySelectorAll(".down").forEach((arr) => {
-        arr.classList.remove("hidden");
-      });
+      // document.querySelectorAll(".down").forEach((arr) => {
+      //   arr.classList.remove("hidden");
+      // });
       document.querySelector(".list-icon").classList.remove("hidden");
       section3.classList.remove("hidden");
       section4.classList.remove("hidden");
@@ -102,33 +102,14 @@ window.addEventListener("load", function () {
         },
         {
           root: null,
-          threshold: 0.8,
-        }
-      );
-
-      const observer2Arrow = new IntersectionObserver(
-        (e) => {
-          // console.log(e[0].isIntersecting);
-          if (e[0].isIntersecting) {
-            document.querySelectorAll(".down").forEach((arr) => {
-              arr.classList.add("hidden");
-            });
-
-            // //! ABOUT SECTION ANIMATION
-            // document
-            //   .getElementById("about-me-text")
-            //   .classList.add("scroll-animation");
-          }
-        },
-        {
-          root: null,
           threshold: 0,
         }
       );
 
       const observer2 = new IntersectionObserver(
         (e) => {
-          // console.log(e[0].isIntersecting, "section 2");
+          console.log(e);
+          console.log(e[0].isIntersecting, "section 2");
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.add("hidden");
@@ -150,7 +131,7 @@ window.addEventListener("load", function () {
         },
         {
           root: null,
-          threshold: 0.45,
+          threshold: 0.2,
         }
       );
 
@@ -158,9 +139,9 @@ window.addEventListener("load", function () {
         (e) => {
           // console.log(e[0].isIntersecting, "section 3");
           if (e[0].isIntersecting) {
-            document.querySelectorAll(".down").forEach((arr) => {
-              arr.classList.add("hidden");
-            });
+            // document.querySelectorAll(".down").forEach((arr) => {
+            //   arr.classList.add("hidden");
+            // });
 
             //! SKILL SECTION ANIMATION
             document
@@ -184,12 +165,12 @@ window.addEventListener("load", function () {
 
       const observer4 = new IntersectionObserver(
         (e) => {
-          // console.log(e);
+          console.log(e[0].intersectionRatio);
           // console.log(e[0].isIntersecting, "section 4");
           if (e[0].isIntersecting) {
-            document.querySelectorAll(".down").forEach((arr) => {
-              arr.classList.add("hidden");
-            });
+            // document.querySelectorAll(".down").forEach((arr) => {
+            //   arr.classList.add("hidden");
+            // });
 
             //! WORK SECTION ANIMATION
 
@@ -208,27 +189,36 @@ window.addEventListener("load", function () {
                 .getElementById("work-2")
                 .classList.add("scroll-animation");
             }
-
-            if (e[0].intersectionRatio > 0.46) {
-              document
-                .getElementById("work-3")
-                .classList.add("scroll-animation");
-            }
           }
         },
         {
           root: null,
-          threshold: [0.1, 0.4, 0.46],
+          threshold: [0.1, 0.4],
         }
       );
+
+      const observerWork3 = new IntersectionObserver(
+        (e) => {
+          // console.log(e);
+          if (e[0].isIntersecting) {
+            document.getElementById("work-3").classList.add("scroll-animation");
+          }
+        },
+        {
+          root: null,
+          threshold: 1,
+          rootMargin: "500px 0px 0px 0px",
+        }
+      );
+      observerWork3.observe(document.getElementById("work-2"));
 
       const observer5 = new IntersectionObserver(
         (e) => {
           // console.log(e[0].isIntersecting, "section 5");
           if (e[0].isIntersecting) {
-            document.querySelectorAll(".down").forEach((arr) => {
-              arr.classList.add("hidden");
-            });
+            // document.querySelectorAll(".down").forEach((arr) => {
+            //   arr.classList.add("hidden");
+            // });
 
             //! CONTACT SECTION ANIMATION
             document
@@ -247,7 +237,6 @@ window.addEventListener("load", function () {
       );
 
       observer1.observe(section1);
-      observer2Arrow.observe(section2);
       observer2.observe(section2);
       observer3.observe(section3);
       observer4.observe(section4);
