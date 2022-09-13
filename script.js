@@ -184,8 +184,8 @@ window.addEventListener("load", function () {
 
       const observer4 = new IntersectionObserver(
         (e) => {
-          console.log(e);
-          console.log(e[0].isIntersecting, "section 4");
+          // console.log(e);
+          // console.log(e[0].isIntersecting, "section 4");
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.add("hidden");
@@ -222,11 +222,36 @@ window.addEventListener("load", function () {
         }
       );
 
+      const observer5 = new IntersectionObserver(
+        (e) => {
+          // console.log(e[0].isIntersecting, "section 5");
+          if (e[0].isIntersecting) {
+            document.querySelectorAll(".down").forEach((arr) => {
+              arr.classList.add("hidden");
+            });
+
+            //! CONTACT SECTION ANIMATION
+            document
+              .getElementById("contact-heading")
+              .classList.add("scroll-animation");
+
+            document
+              .querySelector(".form-container")
+              .classList.add("scroll-animation");
+          }
+        },
+        {
+          root: null,
+          threshold: 0.35,
+        }
+      );
+
       observer1.observe(section1);
       observer2Arrow.observe(section2);
       observer2.observe(section2);
       observer3.observe(section3);
       observer4.observe(section4);
+      observer5.observe(section5);
     }, 650);
   }, 3500);
 });

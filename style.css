@@ -833,6 +833,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transform: translateY(20rem);
+  opacity: 0;
+  transition: all 1s ease-out;
 }
 
 .form {
