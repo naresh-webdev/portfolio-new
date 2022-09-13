@@ -128,7 +128,7 @@ window.addEventListener("load", function () {
 
       const observer2 = new IntersectionObserver(
         (e) => {
-          console.log(e[0].isIntersecting, "section 2");
+          // console.log(e[0].isIntersecting, "section 2");
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.add("hidden");
@@ -156,7 +156,7 @@ window.addEventListener("load", function () {
 
       const observer3 = new IntersectionObserver(
         (e) => {
-          console.log(e[0].isIntersecting, "section 3");
+          // console.log(e[0].isIntersecting, "section 3");
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.add("hidden");
@@ -184,6 +184,7 @@ window.addEventListener("load", function () {
 
       const observer4 = new IntersectionObserver(
         (e) => {
+          console.log(e);
           console.log(e[0].isIntersecting, "section 4");
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
@@ -191,30 +192,33 @@ window.addEventListener("load", function () {
             });
 
             //! WORK SECTION ANIMATION
-            document
-              .getElementById("work-heading")
-              .classList.add("scroll-animation");
 
-            document.querySelectorAll(".skill-content").forEach((con) => {
-              con.classList.add("scroll-animation");
-            });
+            if (e[0].intersectionRatio > 0.1) {
+              document
+                .getElementById("work-heading")
+                .classList.add("scroll-animation");
 
-            document
-              .querySelector(".skill-bar")
-              .classList.add("scroll-animation");
+              document
+                .getElementById("work-1")
+                .classList.add("scroll-animation");
+            }
 
-            document.querySelectorAll(".row").forEach((con) => {
-              con.classList.add("scroll-animation");
-            });
+            if (e[0].intersectionRatio > 0.4) {
+              document
+                .getElementById("work-2")
+                .classList.add("scroll-animation");
+            }
 
-            document.querySelectorAll(".row-reverse").forEach((con) => {
-              con.classList.add("scroll-animation");
-            });
+            if (e[0].intersectionRatio > 0.46) {
+              document
+                .getElementById("work-3")
+                .classList.add("scroll-animation");
+            }
           }
         },
         {
           root: null,
-          threshold: 0.15,
+          threshold: [0.1, 0.4, 0.46],
         }
       );
 
