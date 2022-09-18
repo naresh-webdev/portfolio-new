@@ -55,7 +55,7 @@ window.addEventListener("load", function () {
       // document.querySelectorAll(".down").forEach((arr) => {
       //   arr.classList.remove("hidden");
       // });
-      document.querySelector(".navigation").classList.remove("hidden");
+      document.querySelector(".navigation__button").classList.remove("hidden");
       section3.classList.remove("hidden");
       section4.classList.remove("hidden");
       section5.classList.remove("hidden");
@@ -521,9 +521,11 @@ closeIcon.addEventListener("click", function () {
 });
 
 // ? navigation animation
+const navigationRow = document.querySelector(".navigation__row");
 
-const navigation = document.querySelector(".navigation");
-
-navigation.addEventListener("click", function () {
-  console.log("click");
-});
+document
+  .querySelector(".navigation__button")
+  .addEventListener("click", function (e) {
+    console.log("click");
+    navigationRow.classList.toggle("navigation__active");
+  });
