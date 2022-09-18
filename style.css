@@ -46,6 +46,7 @@ body {
   font-family: "Inter", sans-serif;
   width: 100vw;
   cursor: url("img/cursor.svg"), default;
+  overflow: hidden;
 
   background-color: var(--color-bg);
 }
@@ -1352,6 +1353,9 @@ body {
 }
 
 @media (max-width: 500px) {
+  .navigation__row {
+    width: 38% !important;
+  }
   .header__container--image {
     display: none;
   }
@@ -1389,6 +1393,9 @@ body {
 }
 
 @media (max-width: 340px) {
+  .navigation__row {
+    width: 45% !important;
+  }
   .work {
     margin-left: 5rem;
   }
@@ -1428,6 +1435,15 @@ body {
 }
 
 @media (max-width: 280px) {
+  .navigation__row {
+    width: 100% !important;
+  }
+  .nav--contents ul li:first-child {
+    margin-top: 10rem !important;
+  }
+  .nav--contents ul li {
+    padding-left: 33% !important;
+  }
   .work {
     margin-left: 4rem;
   }
@@ -1585,6 +1601,10 @@ body {
   top: 7rem;
   left: 7rem;
   font-size: 2.6rem;
+}
+
+.nav--contents ul {
+  list-style: none;
 }
 
 .nav--contents ul li {

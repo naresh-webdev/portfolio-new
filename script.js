@@ -49,13 +49,14 @@ window.addEventListener("load", function () {
       "none";
 
     setTimeout(() => {
+      document.querySelector(".navigation__button").classList.remove("hidden");
       document.querySelector(".header__preload").classList.add("hidden");
       section1.classList.remove("hidden");
       section2.classList.remove("hidden");
       // document.querySelectorAll(".down").forEach((arr) => {
       //   arr.classList.remove("hidden");
       // });
-      document.querySelector(".navigation__button").classList.remove("hidden");
+
       section3.classList.remove("hidden");
       section4.classList.remove("hidden");
       section5.classList.remove("hidden");
@@ -99,6 +100,14 @@ window.addEventListener("load", function () {
             ).style.transform = "translateX(0rem)";
             document.querySelector(".header__container--image").style.opacity =
               "1";
+
+            (async function () {
+              setTimeout(() => {
+                document.querySelector(
+                  ".btn--contact"
+                ).style.transitionDuration = ".3s";
+              }, 3000);
+            })();
           }
         },
         {
@@ -169,10 +178,6 @@ window.addEventListener("load", function () {
           console.log(e[0].intersectionRatio);
           // console.log(e[0].isIntersecting, "section 4");
           if (e[0].isIntersecting) {
-            // document.querySelectorAll(".down").forEach((arr) => {
-            //   arr.classList.add("hidden");
-            // });
-
             //! WORK SECTION ANIMATION
 
             if (e[0].intersectionRatio > 0.1) {
