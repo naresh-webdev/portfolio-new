@@ -55,7 +55,7 @@ window.addEventListener("load", function () {
       // document.querySelectorAll(".down").forEach((arr) => {
       //   arr.classList.remove("hidden");
       // });
-      document.querySelector(".list-icon").classList.remove("hidden");
+      document.querySelector(".navigation").classList.remove("hidden");
       section3.classList.remove("hidden");
       section4.classList.remove("hidden");
       section5.classList.remove("hidden");
@@ -519,3 +519,23 @@ const checkName = (name) => {
 closeIcon.addEventListener("click", function () {
   error.style.opacity = 0;
 });
+
+// !header animations
+
+// const listIcon = document.querySelector(".list-icon");
+// const listFig = document.querySelector(".list-fig");
+
+// listIcon.addEventListener("click", function () {
+//   document.querySelector(".list-fig").style.backgroundColor = "transparent";
+
+// listIconBefore.top = "0";
+// listIconAfter.top = "0";
+
+// listIconBefore.transform = "rotate(135deg);";
+// listIconAfter.transform = "rotate(-135deg);";
+
+// listFig.style.setProperty("--value-12", "--value-zero");
+// listFig.style.setProperty("--value12", "--value-zero");
+
+// listFig.style.setProperty("transform", "var(--transform135)");
+// });
