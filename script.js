@@ -36,6 +36,16 @@ function initMap() {
   });
 }
 
+window.addEventListener("resize", (e) => {
+  const windowWidth = window.innerWidth;
+  if (windowWidth > 500) {
+    document.querySelector(".navigation__button").classList.add("hidden");
+  }
+  if (windowWidth < 500) {
+    document.querySelector(".navigation__button").classList.remove("hidden");
+  }
+});
+
 //?section-1.preload
 
 window.addEventListener("load", function () {
@@ -49,7 +59,11 @@ window.addEventListener("load", function () {
       "none";
 
     setTimeout(() => {
-      document.querySelector(".navigation__button").classList.remove("hidden");
+      if (window.innerWidth < 500) {
+        document
+          .querySelector(".navigation__button")
+          .classList.remove("hidden");
+      }
       document.querySelector(".header__preload").classList.add("hidden");
       section1.classList.remove("hidden");
       section2.classList.remove("hidden");

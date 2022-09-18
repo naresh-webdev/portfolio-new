@@ -1111,6 +1111,12 @@ body {
   } */
 }
 
+@media (max-width: 1170px) {
+  .tagcloud {
+    margin-right: 2rem;
+  }
+}
+
 @media (max-width: 1050px) {
   /* contact section */
   .contact {
