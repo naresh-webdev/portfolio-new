@@ -518,3 +518,5 @@ const checkName = (name) => {
 closeIcon.addEventListener("click", function () {
   error.style.opacity = 0;
 });
+
+// test commit
