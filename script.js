@@ -64,6 +64,7 @@ window.addEventListener("load", function () {
       const observer1 = new IntersectionObserver(
         (e) => {
           // console.log(e[0].isIntersecting);
+          console.log("section 1", e[0].isIntersecting);
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.remove("hidden");
@@ -102,14 +103,14 @@ window.addEventListener("load", function () {
         },
         {
           root: null,
-          threshold: 0,
+          threshold: 0.8,
         }
       );
 
       const observer2 = new IntersectionObserver(
         (e) => {
-          console.log(e);
-          console.log(e[0].isIntersecting, "section 2");
+          // console.log(e);
+          // console.log(e[0].isIntersecting, "section 2");
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.add("hidden");
