@@ -520,22 +520,10 @@ closeIcon.addEventListener("click", function () {
   error.style.opacity = 0;
 });
 
-// !header animations
+// ? navigation animation
 
-// const listIcon = document.querySelector(".list-icon");
-// const listFig = document.querySelector(".list-fig");
+const navigation = document.querySelector(".navigation");
 
-// listIcon.addEventListener("click", function () {
-//   document.querySelector(".list-fig").style.backgroundColor = "transparent";
-
-// listIconBefore.top = "0";
-// listIconAfter.top = "0";
-
-// listIconBefore.transform = "rotate(135deg);";
-// listIconAfter.transform = "rotate(-135deg);";
-
-// listFig.style.setProperty("--value-12", "--value-zero");
-// listFig.style.setProperty("--value12", "--value-zero");
-
-// listFig.style.setProperty("transform", "var(--transform135)");
-// });
+navigation.addEventListener("click", function () {
+  console.log("click");
+});
