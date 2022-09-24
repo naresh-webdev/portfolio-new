@@ -970,12 +970,34 @@ body {
   box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
 }
 
-.close-icon {
+.success {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 1.8rem;
+  z-index: 10001;
+  color: #270;
+  padding: 1.5rem;
+  background-color: #dff2bf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.success p {
+  padding-bottom: 4px;
+}
+
+.close-icon-error {
   height: 25px;
   width: 25px;
   margin-left: 10px;
 }
-
 .scrolldown {
   color: var(--color-text);
   position: absolute;
