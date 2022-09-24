@@ -41,12 +41,18 @@ export class mail {
       } else {
         //! error for condition 2-solved
         // alert("name should be atleast 3 character or more");
+        if (this.error.classList.contains("success")) {
+          revertSuccess.call(this, "Name cannot be less than 3 characters !!!");
+        }
         this.errorText.textContent =
           "Name cannot be less than 3 characters !!!";
         this.error.style.opacity = 1;
       }
     } else {
       //! error for condition 1-solved
+      if (this.error.classList.contains("success")) {
+        revertSuccess.call(this, "Empty fields not allowed !!!");
+      }
       // alert("empty fields not allowed !!!");
       this.errorText.textContent = "Empty fields not allowed !!!";
       this.error.style.opacity = 1;
@@ -79,12 +85,18 @@ export class mail {
             this._sendMail();
           } else {
             //!raise error-solved
+            if (this.error.classList.contains("success")) {
+              revertSuccess.call(this, "Invalid email address !!!");
+            }
             this.errorText.textContent = "Invalid email address !!!";
             this.error.style.opacity = 1;
             throw new Error("email address not delievarable");
           }
         } else {
           //!raise error-solved
+          if (this.error.classList.contains("success")) {
+            revertSuccess.call(this, "Enter a valid email address !!!");
+          }
           this.errorText.textContent = "Enter a valid email address !!!";
           this.error.style.opacity = 1;
           throw new Error("enter a valid email address");
@@ -92,7 +104,10 @@ export class mail {
       })
       .catch((err) => {
         //!raise error-solved
-        this.errorText.textContent = `Network Error: ${err.message} data !!!`;
+        if (this.error.classList.contains("success")) {
+          revertSuccess.call(this, ` Error: ${err.message} !!!`);
+        }
+        this.errorText.textContent = ` Error: ${err.message} !!!`;
         this.error.style.opacity = 1;
       });
   }
@@ -110,16 +125,15 @@ export class mail {
         if (res.status === 200) {
           //!success message
           // alert("success message sent");
-          const img = document.querySelector(".close-icon-error");
-          img.src = "img/x-green.svg";
-          img.addEventListener("load", () => {
-            this.error.style.backgroundColor = "#dff2bf";
-            this.error.style.color = "#270";
-            this.errorText.textContent = `Message sent`;
-            this.error.style.opacity = 1;
-          });
+          successMessageTemplate.call(this);
         } else {
           //!raise error - solved
+          if (this.error.classList.contains("success")) {
+            revertSuccess.call(
+              this,
+              `message couldn't send please try again!!!`
+            );
+          }
           // alert("message couldn't send please try again");
           this.errorText.textContent = `message couldn't send please try again!!!`;
           this.error.style.opacity = 1;
@@ -128,3 +142,26 @@ export class mail {
       .catch((err) => console.error(err));
   }
 }
+
+const successMessageTemplate = function () {
+  const img = document.querySelector(".close-icon-error");
+  img.src = "img/x-green.svg";
+  img.addEventListener("load", () => {
+    this.error.style.backgroundColor = "#dff2bf";
+    this.error.style.color = "#270";
+    this.errorText.textContent = "Message sent";
+    this.error.style.opacity = 1;
+  });
+  this.error.classList.add("success");
+};
+
+const revertSuccess = function (errorMessage) {
+  const img = document.querySelector(".close-icon-error");
+  img.src = "img/x.svg";
+  img.addEventListener("load", () => {
+    this.error.style.backgroundColor = "#f03e3e";
+    this.error.style.color = "#f5f5f5";
+    this.errorText.textContent = errorMessage;
+    this.error.classList.remove("success");
+  });
+};
