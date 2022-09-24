@@ -331,10 +331,8 @@ document
 
 // ? smooth scrolling
 
-const header = document.querySelector(".header__nav--items");
-
-header.addEventListener("click", (e) => {
-  const link = e.target.closest(".header__nav--item");
+const smoothScrolling = function (e, parentEl) {
+  const link = e.target.closest(`.${parentEl}`);
   if (!link) return;
 
   const linkPointer = link.getAttribute("href").slice(1);
@@ -348,5 +346,33 @@ header.addEventListener("click", (e) => {
     top: targetCordY - 50,
     behavior: "smooth",
   });
+};
+
+document.querySelector(".header__nav--items").addEventListener("click", (e) => {
+  smoothScrolling(e, "header__nav--item");
+  // const link = e.target.closest(".header__nav--item");
+  // if (!link) return;
+
+  // const linkPointer = link.getAttribute("href").slice(1);
+
+  // const target = document.querySelector(`.${linkPointer}`);
+  // const targetCordX = target.getBoundingClientRect().x;
+  // const targetCordY = target.getBoundingClientRect().y;
+  // console.log(targetCordY);
+  // window.scrollTo({
+  //   left: targetCordX,
+  //   top: targetCordY - 50,
+  //   behavior: "smooth",
+  // });
   // target.scrollIntoView({ behavior: "smooth" });
 });
+
+document.querySelector(".btn--contact").addEventListener("click", (e) => {
+  smoothScrolling(e, "btn--contact");
+});
+
+document
+  .querySelector(".header__nav--logo-box")
+  .addEventListener("click", (e) => {
+    smoothScrolling(e, "header__nav--logo-box");
+  });
