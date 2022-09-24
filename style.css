@@ -189,7 +189,7 @@ body {
   left: 0;
   height: 100px;
   width: 100%;
-  z-index: 100;
+  z-index: 1002;
   background-color: var(--color-bg);
 
   top: 0;
@@ -957,29 +957,10 @@ body {
   left: 50%;
   transform: translate(-50%);
   font-size: 1.8rem;
-  z-index: 10001;
+  z-index: 1001;
   color: var(--color-text-light);
   padding: 1.5rem;
   background-color: #f03e3e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-
-  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.5);
-}
-
-.success {
-  position: fixed;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%);
-  font-size: 1.8rem;
-  z-index: 10001;
-  color: #270;
-  padding: 1.5rem;
-  background-color: #dff2bf;
   display: flex;
   justify-content: center;
   align-items: center;

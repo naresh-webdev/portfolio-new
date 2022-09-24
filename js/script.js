@@ -328,3 +328,25 @@ document
     console.log("click");
     navigationRow.classList.toggle("navigation__active");
   });
+
+// ? smooth scrolling
+
+const header = document.querySelector(".header__nav--items");
+
+header.addEventListener("click", (e) => {
+  const link = e.target.closest(".header__nav--item");
+  if (!link) return;
+
+  const linkPointer = link.getAttribute("href").slice(1);
+
+  const target = document.querySelector(`.${linkPointer}`);
+  const targetCordX = target.getBoundingClientRect().x;
+  const targetCordY = target.getBoundingClientRect().y;
+  console.log(targetCordY);
+  window.scrollTo({
+    left: targetCordX,
+    top: targetCordY - 50,
+    behavior: "smooth",
+  });
+  // target.scrollIntoView({ behavior: "smooth" });
+});
