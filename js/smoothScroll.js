@@ -1,6 +1,7 @@
+import { navigationRow } from "./script.js";
 // ? smooth scrolling
 
-const smoothScrolling = function (e, parentEl) {
+const smoothScrolling = function (e, parentEl, navEl = false) {
   const link = e.target.closest(`.${parentEl}`);
   if (!link) return;
 
@@ -10,11 +11,25 @@ const smoothScrolling = function (e, parentEl) {
   const targetCordX = target.getBoundingClientRect().x;
   const targetCordY = target.getBoundingClientRect().y;
   console.log(targetCordY);
-  window.scrollTo({
-    left: targetCordX,
-    top: targetCordY - 50,
-    behavior: "smooth",
-  });
+  if (navEl) {
+    wait(0.35).then(() => {
+      window.scrollTo({
+        left: targetCordX,
+        top: targetCordY - 50,
+        behavior: "smooth",
+      });
+      if (navigationRow.classList.contains("navigation__active")) {
+        navigationRow.classList.remove("navigation__active");
+        document.querySelector(".navigation__checkbox").checked = false;
+      }
+    });
+  } else {
+    window.scrollTo({
+      left: targetCordX,
+      top: targetCordY - 50,
+      behavior: "smooth",
+    });
+  }
 };
 
 export const smoothScrollHandler = function (
@@ -23,19 +38,16 @@ export const smoothScrollHandler = function (
   mobile = false
 ) {
   document.querySelector(`.${parentEl}`).addEventListener("click", (e) => {
-    smoothScrolling(e, `${targetEl}`);
-
     if (mobile) {
-      if (
-        document
-          .querySelector(".navigation__row")
-          .classList.contains("navigation__active")
-      ) {
-        document
-          .querySelector(".navigation__row")
-          .classList.remove("navigation__active");
-        document.querySelector(".navigation__checkbox").checked = false;
-      }
+      smoothScrolling(e, `${targetEl}`, true);
+    } else {
+      smoothScrolling(e, `${targetEl}`);
     }
+  });
+};
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
   });
 };

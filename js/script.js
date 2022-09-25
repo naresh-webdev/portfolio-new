@@ -321,7 +321,7 @@ closeIconError.addEventListener("click", function () {
 });
 
 // ? navigation animation
-const navigationRow = document.querySelector(".navigation__row");
+export const navigationRow = document.querySelector(".navigation__row");
 
 document
   .querySelector(".navigation__button")
