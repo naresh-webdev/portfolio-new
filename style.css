@@ -482,7 +482,7 @@ body {
 .underline-on-hover::after {
   content: "";
   margin-top: 5px;
-  height: 2px;
+  height: 0.16rem;
   background-color: var(--color-primary);
   display: block;
   width: 0%;
