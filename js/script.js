@@ -350,21 +350,6 @@ const smoothScrolling = function (e, parentEl) {
 
 document.querySelector(".header__nav--items").addEventListener("click", (e) => {
   smoothScrolling(e, "header__nav--item");
-  // const link = e.target.closest(".header__nav--item");
-  // if (!link) return;
-
-  // const linkPointer = link.getAttribute("href").slice(1);
-
-  // const target = document.querySelector(`.${linkPointer}`);
-  // const targetCordX = target.getBoundingClientRect().x;
-  // const targetCordY = target.getBoundingClientRect().y;
-  // console.log(targetCordY);
-  // window.scrollTo({
-  //   left: targetCordX,
-  //   top: targetCordY - 50,
-  //   behavior: "smooth",
-  // });
-  // target.scrollIntoView({ behavior: "smooth" });
 });
 
 document.querySelector(".btn--contact").addEventListener("click", (e) => {

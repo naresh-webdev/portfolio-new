@@ -1581,7 +1581,7 @@ body {
   font-size: 1.6rem;
 
   height: 100vh;
-  z-index: 101;
+  z-index: 1003;
   width: 30%;
   transition: all 0.3s ease-out;
 
