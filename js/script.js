@@ -361,3 +361,11 @@ document
   .addEventListener("click", (e) => {
     smoothScrolling(e, "header__nav--logo-box");
   });
+
+document.querySelector(".nav--contents").addEventListener("click", (e) => {
+  smoothScrolling(e, "nav--content");
+  if (navigationRow.classList.contains("navigation__active")) {
+    navigationRow.classList.remove("navigation__active");
+    document.querySelector(".navigation__checkbox").checked = false;
+  }
+});
