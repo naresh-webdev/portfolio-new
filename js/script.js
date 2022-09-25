@@ -326,7 +326,7 @@ export const navigationRow = document.querySelector(".navigation__row");
 document
   .querySelector(".navigation__button")
   .addEventListener("click", function (e) {
-    console.log("click");
+    navigationRow.style.top = `${window.pageYOffset}px`;
     navigationRow.classList.toggle("navigation__active");
   });
 
@@ -339,6 +339,7 @@ const smoothScrollElements = [
   ["btn--contact", "btn--contact", false],
   ["header__nav--logo-box", "header__nav--logo-box", false],
   ["nav--contents", "nav--content", true],
+  ["navigation__row", "nav--logo-box", false],
 ];
 
 smoothScrollElements.forEach((targetSet) => {
