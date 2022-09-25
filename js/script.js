@@ -1,6 +1,7 @@
 ("use strict");
 
 import { mail } from "./mail.js";
+import { smoothScrollHandler } from "./smoothScroll.js";
 
 //?Variable Declarations
 const preloadLetter = document.querySelector(".header__preload--logo-letter");
@@ -331,41 +332,15 @@ document
 
 // ? smooth scrolling
 
-const smoothScrolling = function (e, parentEl) {
-  const link = e.target.closest(`.${parentEl}`);
-  if (!link) return;
+// smoothScrollHandler("header__nav--items", "header__nav--item");
 
-  const linkPointer = link.getAttribute("href").slice(1);
+const smoothScrollElements = [
+  ["header__nav--items", "header__nav--item", false],
+  ["btn--contact", "btn--contact", false],
+  ["header__nav--logo-box", "header__nav--logo-box", false],
+  ["nav--contents", "nav--content", true],
+];
 
-  const target = document.querySelector(`.${linkPointer}`);
-  const targetCordX = target.getBoundingClientRect().x;
-  const targetCordY = target.getBoundingClientRect().y;
-  console.log(targetCordY);
-  window.scrollTo({
-    left: targetCordX,
-    top: targetCordY - 50,
-    behavior: "smooth",
-  });
-};
-
-document.querySelector(".header__nav--items").addEventListener("click", (e) => {
-  smoothScrolling(e, "header__nav--item");
-});
-
-document.querySelector(".btn--contact").addEventListener("click", (e) => {
-  smoothScrolling(e, "btn--contact");
-});
-
-document
-  .querySelector(".header__nav--logo-box")
-  .addEventListener("click", (e) => {
-    smoothScrolling(e, "header__nav--logo-box");
-  });
-
-document.querySelector(".nav--contents").addEventListener("click", (e) => {
-  smoothScrolling(e, "nav--content");
-  if (navigationRow.classList.contains("navigation__active")) {
-    navigationRow.classList.remove("navigation__active");
-    document.querySelector(".navigation__checkbox").checked = false;
-  }
+smoothScrollElements.forEach((targetSet) => {
+  smoothScrollHandler(targetSet[0], targetSet[1], targetSet[2]);
 });
