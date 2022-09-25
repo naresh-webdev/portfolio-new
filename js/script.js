@@ -82,7 +82,7 @@ window.addEventListener("load", function () {
       const observer1 = new IntersectionObserver(
         (e) => {
           // console.log(e[0].isIntersecting);
-          console.log("section 1", e[0].isIntersecting);
+          // console.log("section 1", e[0].isIntersecting);
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.remove("hidden");
@@ -329,6 +329,13 @@ document
     navigationRow.style.top = `${window.pageYOffset}px`;
     navigationRow.classList.toggle("navigation__active");
   });
+
+document.addEventListener("scroll", (e) => {
+  if (navigationRow.classList.contains("navigation__active")) {
+    navigationRow.classList.remove("navigation__active");
+    document.querySelector(".navigation__checkbox").checked = false;
+  }
+});
 
 // ? smooth scrolling
 
