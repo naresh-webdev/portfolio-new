@@ -499,6 +499,9 @@ body {
 .about {
   /* margin-top: 10rem;
   margin-bottom: 12rem; */
+  margin-left: 13.2rem;
+  width: 80%;
+  padding-top: 10rem;
   margin-top: 5rem;
   display: flex;
   justify-content: center;
@@ -508,7 +511,7 @@ body {
 .about__container {
   position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -550,7 +553,7 @@ body {
   display: inline-block;
   font-weight: bold;
   letter-spacing: 1px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--color-primary);
   opacity: 0;
   transform: translate(-6rem, 13rem);
@@ -1099,10 +1102,10 @@ body {
   .paragraph {
     font-size: 2.3rem;
   }
-  .about__container {
+  /* .about__container {
     width: 82%;
     justify-content: space-between;
-  }
+  } */
   .about {
     margin-top: 10rem;
   }
@@ -1176,18 +1179,22 @@ body {
   }
   .about__container {
     flex-direction: column;
+    align-items: flex-start;
     gap: 9rem;
   }
-  .about__container-content {
+  .Sphere {
+    align-self: center;
+  }
+  /* .about__container-content {
     align-self: flex-start;
     margin-left: 3rem;
-  }
+  } */
   .about__text-paragraph {
     max-width: 50ch;
   }
   .about {
     height: auto !important;
-    margin: 8rem 0;
+    /* margin: 8rem 0; */
     margin-bottom: 20rem;
   }
   .tagcloud {
@@ -1658,4 +1665,15 @@ body {
 
 .nav--contents ul li:last-child {
   margin-bottom: 0;
+}
+
+@media (min-width: 1600px) {
+  .about {
+    margin-left: 13.2rem;
+    width: 80%;
+  }
+
+  .about__container {
+    justify-content: space-between;
+  }
 }
