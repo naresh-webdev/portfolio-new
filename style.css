@@ -633,6 +633,8 @@ body {
   margin: 4rem;
   margin-left: 6rem;
   margin-top: 6rem;
+  align-self: center;
+  justify-self: center;
   width: 80%;
   padding: 20px;
   box-sizing: border-box;
