@@ -393,6 +393,7 @@ body {
   height: 2.5rem;
   margin-bottom: 13rem;
   cursor: pointer;
+  z-index: 10000;
 }
 .header__container--links a:hover .header__container--link-icon {
   stroke: var(--color-primary);
