@@ -26,7 +26,7 @@ const smoothScrolling = function (e, parentEl, navEl = false) {
   } else {
     window.scrollTo({
       left: targetCordX,
-      top: targetCordY - 50,
+      top: targetCordY - 70,
       behavior: "smooth",
     });
   }
