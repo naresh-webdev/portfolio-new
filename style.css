@@ -748,6 +748,15 @@ body {
     );
 }
 
+.row__img-3 {
+  background-image: url("img/work-3.jpg"),
+    linear-gradient(
+      to right,
+      rgba(16, 119, 147, 0.352) 0%,
+      rgba(16, 119, 147, 0.352) 100%
+    );
+}
+
 /* .row__img-shadow {
   height: 100%;
   width: 100%;
@@ -765,6 +774,10 @@ body {
 }
 .row__img-2:hover {
   background-image: url("img/work-2.PNG"),
+    linear-gradient(to right, transparent 0%, transparent 100%);
+}
+.row__img-3:hover {
+  background-image: url("img/work-3.jpg"),
     linear-gradient(to right, transparent 0%, transparent 100%);
 }
 
@@ -1152,12 +1165,18 @@ body {
   .row__img-2:hover {
     background-image: url(img/work-2-dark.png);
   }
+  .row__img-3:hover {
+    background-image: url(img/work-3-darken.jpg);
+  }
 
   .row__img-1 {
     background-image: url("img/work-1-dark.png");
   }
   .row__img-2 {
     background-image: url("img/work-2-dark.png");
+  }
+  .row__img-3 {
+    background-image: url("img/work-3-darken.jpg");
   }
 
   .row_img-box {
