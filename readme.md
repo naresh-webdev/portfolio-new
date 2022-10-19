@@ -4,4 +4,4 @@ built on august 2022, with the newly learned javascript skills and inspirations 
 
 Master branch -- Working project.
 
-link:
+link: https://nareshtec.netlify.app/
