@@ -1,5 +1,8 @@
 ("use strict");
 
+import { mail } from "./mail.js";
+import { smoothScrollHandler } from "./smoothScroll.js";
+
 //?Variable Declarations
 const preloadLetter = document.querySelector(".header__preload--logo-letter");
 const section1 = document.querySelector(".header");
@@ -9,8 +12,9 @@ const section4 = document.querySelector(".work");
 const section5 = document.querySelector(".contact");
 const cursor = document.querySelector(".cursor");
 const error = document.querySelector(".error");
-const closeIcon = document.querySelector(".close-icon");
-const errorText = document.querySelector(".errorText");
+// const errorText = document.querySelector(".errorText");
+// const successText = document.querySelector(".successText");
+const closeIconError = document.querySelector(".close-icon-error");
 
 // //?cursor animation
 
@@ -36,6 +40,16 @@ function initMap() {
   });
 }
 
+window.addEventListener("resize", (e) => {
+  const windowWidth = window.innerWidth;
+  if (windowWidth > 500) {
+    document.querySelector(".navigation__button").classList.add("hidden");
+  }
+  if (windowWidth < 500) {
+    document.querySelector(".navigation__button").classList.remove("hidden");
+  }
+});
+
 //?section-1.preload
 
 window.addEventListener("load", function () {
@@ -49,21 +63,26 @@ window.addEventListener("load", function () {
       "none";
 
     setTimeout(() => {
+      if (window.innerWidth < 500) {
+        document
+          .querySelector(".navigation__button")
+          .classList.remove("hidden");
+      }
       document.querySelector(".header__preload").classList.add("hidden");
       section1.classList.remove("hidden");
       section2.classList.remove("hidden");
       // document.querySelectorAll(".down").forEach((arr) => {
       //   arr.classList.remove("hidden");
       // });
-      document.querySelector(".list-icon").classList.remove("hidden");
+
       section3.classList.remove("hidden");
       section4.classList.remove("hidden");
       section5.classList.remove("hidden");
       error.classList.remove("hidden");
-
       const observer1 = new IntersectionObserver(
         (e) => {
           // console.log(e[0].isIntersecting);
+          // console.log("section 1", e[0].isIntersecting);
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.remove("hidden");
@@ -98,18 +117,26 @@ window.addEventListener("load", function () {
             ).style.transform = "translateX(0rem)";
             document.querySelector(".header__container--image").style.opacity =
               "1";
+
+            (async function () {
+              setTimeout(() => {
+                document.querySelector(
+                  ".btn--contact"
+                ).style.transitionDuration = ".3s";
+              }, 3000);
+            })();
           }
         },
         {
           root: null,
-          threshold: 0,
+          threshold: 0.8,
         }
       );
 
       const observer2 = new IntersectionObserver(
         (e) => {
-          console.log(e);
-          console.log(e[0].isIntersecting, "section 2");
+          // console.log(e);
+          // console.log(e[0].isIntersecting, "section 2");
           if (e[0].isIntersecting) {
             document.querySelectorAll(".down").forEach((arr) => {
               arr.classList.add("hidden");
@@ -165,13 +192,8 @@ window.addEventListener("load", function () {
 
       const observer4 = new IntersectionObserver(
         (e) => {
-          console.log(e[0].intersectionRatio);
           // console.log(e[0].isIntersecting, "section 4");
           if (e[0].isIntersecting) {
-            // document.querySelectorAll(".down").forEach((arr) => {
-            //   arr.classList.add("hidden");
-            // });
-
             //! WORK SECTION ANIMATION
 
             if (e[0].intersectionRatio > 0.1) {
@@ -291,230 +313,42 @@ var color = "#64ffda ";
 document.querySelector(".Sphere").style.color = color;
 
 //? send mail
+new mail("service_5ls2xer", "template_xsgo1px", "REuIZUBFPI5XC8qFR");
 
-// var data = {
-//   service_id: "service_5ls2xer",
-//   template_id: "template_xsgo1px",
-//   user_id: "REuIZUBFPI5XC8qFR",
-//   template_params: {
-//     name: "James",
-//     subject: "subject",
-//     email: "test@gmail.com",
-//     message: "message",
-//     "g-recaptcha-response": "03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...",
-//   },
-// };
-
-// $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-//   type: "POST",
-//   data: JSON.stringify(data),
-//   contentType: "application/json",
-// })
-//   .done(function () {
-//     alert("Your mail is sent!");
-//   })
-//   .fail(function (error) {
-//     alert("Oops... " + JSON.stringify(error));
-//   });
-
-class mail {
-  constructor(serviceID, templateID, publicKey) {
-    this.serviceId = serviceID;
-    this.templateId = templateID;
-    this.publicKey = publicKey;
-    this.templateParams = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      subject: document.getElementById("subject").value,
-      message: document.getElementById("textarea").value,
-    };
-
-    document
-      .querySelector(".submit-btn")
-      .addEventListener("click", this.btnOnClick.bind(this));
-  }
-
-  btnOnClick(e) {
-    e.preventDefault;
-    this.templateParams.name = document.getElementById("name").value;
-    this.templateParams.email = document.getElementById("email").value;
-    this.templateParams.subject = document.getElementById("subject").value;
-    this.templateParams.message = document.getElementById("textarea").value;
-
-    // * 1.check if all the field are not empty
-    if (
-      this._isEmpty([
-        this.templateParams.name,
-        this.templateParams.email,
-        this.templateParams.subject,
-        this.templateParams.message,
-      ])
-    ) {
-      // *2.check if the name has atleast 3 characters
-      if (this.templateParams.name.length >= 3) {
-        this._isDeliverable(this.templateParams.email);
-      } else {
-        //! error for condition 2-solved
-        // alert("name should be atleast 3 character or more");
-        errorText.textContent = "Name cannot be less than 3 characters !!!";
-        error.style.opacity = 1;
-      }
-    } else {
-      //! error for condition 1-solved
-      // alert("empty fields not allowed !!!");
-      errorText.textContent = "Empty fields not allowed !!!";
-      error.style.opacity = 1;
-    }
-  }
-
-  _isEmpty([...args]) {
-    // console.log(args);
-    if (args.every((field) => field !== "")) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  _isDeliverable(email) {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    return fetch(
-      `https://api.eva.pingutil.com/email?email=${email}`,
-      requestOptions
-    )
-      .then((response) => response.json())
-      .then((res) => {
-        if (res.status === "success") {
-          if (res.data.deliverable) {
-            this._sendMail();
-          } else {
-            //!raise error-solved
-            errorText.textContent = "Invalid email address !!!";
-            error.style.opacity = 1;
-            throw new Error("email address not delievarable");
-          }
-        } else {
-          //!raise error-solved
-          errorText.textContent = "Enter a valid email address !!!";
-          error.style.opacity = 1;
-          throw new Error("enter a valid email address");
-        }
-      })
-      .catch((err) => {
-        //!raise error-solved
-        errorText.textContent = `Network Error: ${err.message} data !!!`;
-        error.style.opacity = 1;
-      });
-  }
-
-  _sendMail() {
-    emailjs.init(this.publicKey);
-    emailjs
-      .send(
-        this.serviceId,
-        this.templateId,
-        this.templateParams,
-        this.publicKey
-      )
-      .then((res) => {
-        if (res.status === 200) {
-          // *success message
-          alert("success message sent");
-        } else {
-          //!raise error - solved
-          // alert("message couldn't send please try again");
-          errorText.textContent = `message couldn't send please try again!!!`;
-          error.style.opacity = 1;
-        }
-      })
-      .catch((err) => console.console.error(err));
-  }
-}
-
-const MailOjbect = new mail(
-  "service_5ls2xer",
-  "template_xsgo1px",
-  "REuIZUBFPI5XC8qFR"
-);
-
-/*
-submitBtn;
-// !mail sending funcion
-function sendMail() {
-  emailjs.init("REuIZUBFPI5XC8qFR");
-  emailjs
-    .send(
-      "service_5ls2xer",
-      "template_xsgo1px",
-      templateParams,
-      "REuIZUBFPI5XC8qFR"
-    )
-    .then((res) => {
-      if (res.status === 200) {
-        console.log("message sent");
-      }
-    });
-}
-
-// *testing functions
-
-// const testMail = document.getElementById("email").value;
-// const testMail = "test@gmail.com";
-
-const isDeliverable = function (testMail) {
-  const requestOptions = {
-    method: "GET",
-    redirect: "follow",
-  };
-
-  return fetch(
-    `https://api.eva.pingutil.com/email?email=${testMail}`,
-    requestOptions
-  )
-    .then((response) => response.json())
-    .then((res) => {
-      if (res.status === "success") {
-        if (res.data.deliverable) {
-          sendMail();
-        } else {
-          //!raise error
-          throw new Error("email address not delievarable");
-        }
-      } else {
-        //!raise error
-        throw new Error("enter a valid email address");
-      }
-    })
-    .catch((error) => console.log("error", error));
-};
-
-const isEmpty = function ([...args]) {
-  // console.log(args);
-  if (args.every((field) => field !== "")) {
-    checkName(document.getElementById("name").value);
-  } else {
-    //!raise error
-  }
-};
-
-const checkName = (name) => {
-  if (name.length > 3) {
-    isDeliverable(document.getElementById("email").value);
-  } else {
-    //!raise error
-
-    alert("name should be more than 3 ch");
-  }
-};
-
-// isDeliverable(testMail);
-
-*/
-
-closeIcon.addEventListener("click", function () {
+closeIconError.addEventListener("click", function () {
+  console.log("click");
   error.style.opacity = 0;
+});
+
+// ? navigation animation
+export const navigationRow = document.querySelector(".navigation__row");
+
+document
+  .querySelector(".navigation__button")
+  .addEventListener("click", function (e) {
+    navigationRow.style.top = `${window.pageYOffset}px`;
+    navigationRow.classList.toggle("navigation__active");
+  });
+
+document.addEventListener("scroll", (e) => {
+  if (navigationRow.classList.contains("navigation__active")) {
+    navigationRow.classList.remove("navigation__active");
+    document.querySelector(".navigation__checkbox").checked = false;
+  }
+});
+
+// ? smooth scrolling
+
+// smoothScrollHandler("header__nav--items", "header__nav--item");
+
+const smoothScrollElements = [
+  ["header__nav--items", "header__nav--item", false],
+  ["btn--contact", "btn--contact", false],
+  ["header__nav--logo-box", "header__nav--logo-box", false],
+  ["nav--contents", "nav--content", true],
+  ["navigation__row", "nav--logo-box", false],
+];
+
+smoothScrollElements.forEach((targetSet) => {
+  smoothScrollHandler(targetSet[0], targetSet[1], targetSet[2]);
 });
