@@ -286,7 +286,7 @@ const Texts = [
   "BOOTSTRAP",
   "MYSQL",
   "JQUERY",
-  "TAILWIND",
+  "TAILWIND-CSS",
   "GIT",
   "BEM",
   "ES5/ES6",
