@@ -423,13 +423,14 @@ body {
 }
 
 .header__container--mail-id {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   writing-mode: vertical-rl;
   color: var(--color-text);
   text-align: center;
   letter-spacing: 0.1rem;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  text-decoration:none;
 }
 .header__container--mail-id:hover {
   margin-bottom: 0.5rem;
