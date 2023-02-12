@@ -75,7 +75,7 @@ export class mail {
     };
 
     return fetch(
-      `https://api.eva.pingutil.com/email?email=${email}`,
+      `http://api.eva.pingutil.com/email?email=${email}`,
       requestOptions
     )
       .then((response) => response.json())
