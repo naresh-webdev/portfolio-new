@@ -69,29 +69,23 @@ export class mail {
   }
 
   _isDeliverable(email) {
-    const requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
+    // const requestOptions = {
+    //   method: "GET",
+    //   redirect: "follow",
+    // };
 
     return fetch(
-      `http://api.eva.pingutil.com/email?email=${email}`,
-      requestOptions
+      // * fixed. change in validation checking api
+      `https://open.kickbox.com/v1/disposable/${email}`
+      // `http://api.eva.pingutil.com/email?email=${email}`,
+      // requestOptions
     )
       .then((response) => response.json())
       .then((res) => {
-        if (res.status === "success") {
-          if (res.data.deliverable) {
-            this._sendMail();
-          } else {
-            //!raise error-solved
-            if (this.error.classList.contains("success")) {
-              revertSuccess.call(this, "Invalid email address !!!");
-            }
-            this.errorText.textContent = "Invalid email address !!!";
-            this.error.style.opacity = 1;
-            throw new Error("email address not delievarable");
-          }
+        console.log(res);
+        console.log(res);
+        if (!res.disposable) {
+          this._sendMail();
         } else {
           //!raise error-solved
           if (this.error.classList.contains("success")) {
@@ -104,6 +98,7 @@ export class mail {
       })
       .catch((err) => {
         //!raise error-solved
+        console.log("errror from line 107");
         if (this.error.classList.contains("success")) {
           revertSuccess.call(this, ` Error: ${err.message} !!!`);
         }
@@ -139,7 +134,10 @@ export class mail {
           this.error.style.opacity = 1;
         }
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.log("the error is from line 143");
+        console.error(err);
+      });
   }
 }
 
