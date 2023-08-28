@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "mailslurp-client": "^15.13.3",
-    "type": "module",
     "requirejs": "^2.3.6"
   }
 }
