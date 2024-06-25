@@ -285,7 +285,7 @@ body {
   left: 0;
   height: 100%;
   width: 100%;
-  background-image: url("./img/me-ai-art.jpeg");
+  background-image: url("./img/profile.jpeg");
   background-size: cover;
   background-position: center;
   border-radius: 3px;
@@ -750,7 +750,7 @@ body {
 }
 
 .row__img-3 {
-  background-image: url("img/work-3.jpg"),
+  background-image: url("img/work-3.png"),
     linear-gradient(
       to right,
       rgba(16, 119, 147, 0.352) 0%,
@@ -778,7 +778,7 @@ body {
     linear-gradient(to right, transparent 0%, transparent 100%);
 }
 .row__img-3:hover {
-  background-image: url("img/work-3.jpg"),
+  background-image: url("img/work-3.png"),
     linear-gradient(to right, transparent 0%, transparent 100%);
 }
 
